@@ -4,10 +4,10 @@
 
 ## 🌐 Ссылки на страницы
 
-- [Главная страница](https://hismajesty777.github.io/portfolio/index.html)
-- [Проекты](https://hismajesty777.github.io/portfolio/pages/projects.html)
-- [Учебный дневник](https://hismajesty777.github.io/portfolio/pages/diary.html)
-- [Контакты](https://hismajesty777.github.io/portfolio/pages/contacts.html)
+- [Главная страница](https://H1sMajesty777.github.io/portfolio/index.html)
+- [Проекты](https://H1sMajesty777.github.io/portfolio/pages/projects.html)
+- [Учебный дневник](https://H1sMajesty777.github.io/portfolio/pages/diary.html)
+- [Контакты](https://H1sMajesty777.github.io/portfolio/pages/contacts.html)
 
 ## 📋 Описание проекта
 
