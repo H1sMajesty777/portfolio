@@ -4,7 +4,7 @@
 
 ## 🌐 Ссылки на страницы
 
-- [Главная страница](https://hismajesty777.github.io/portfolio/)
+- [Главная страница](https://hismajesty777.github.io/portfolio/index.html)
 - [Проекты](https://hismajesty777.github.io/portfolio/pages/projects.html)
 - [Учебный дневник](https://hismajesty777.github.io/portfolio/pages/diary.html)
 - [Контакты](https://hismajesty777.github.io/portfolio/pages/contacts.html)
