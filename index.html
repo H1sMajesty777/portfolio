@@ -153,35 +153,91 @@
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
-                            <div class="col-xl-4">
+                            <!-- Карточка 1 - с каруселью -->
+                            <div class="col-xl-3 col-md-6 col-sm-12">
                                 <div class="card h-100">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Проект 1</h5>
-                                        <p class="card-text small text-muted">Описание проекта 1</p>
+                                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="images/project1.jpg" class="d-block w-100" alt="Проект 1 - вид 1" style="height: 150px; object-fit: cover;">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="images/project2.jpg" class="d-block w-100" alt="Проект 1 - вид 2" style="height: 150px; object-fit: cover;">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="images/project3.jpg" class="d-block w-100" alt="Проект 1 - вид 3" style="height: 150px; object-fit: cover;">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Личный сайт с галереей</h5>
+                                        <p class="card-text small text-muted">
+                                            Адаптивный сайт с интерактивной каруселью проектов
+                                        </p>
+                                        <div class="mb-2">
+                                            <span class="badge bg-primary">HTML</span>
+                                            <span class="badge bg-primary">CSS</span>
+                                            <span class="badge bg-primary">Bootstrap</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4>
+            
+                            <!-- Карточка 2 -->
+                            <div class="col-xl-3 col-md-6 col-sm-12">
                                 <div class="card h-100">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Проект 2</h5>
-                                        <p class="card-text small text-muted">Описание проекта 2</p>
+                                    <img src="images/project2.jpg" class="card-img-top" alt="Todo приложение" style="height: 150px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Todo приложение</h5>
+                                        <p class="card-text small text-muted">
+                                            Приложение для управления задачами с использованием JavaScript
+                                        </p>
+                                        <div class="mb-2">
+                                            <span class="badge bg-success">JavaScript</span>
+                                            <span class="badge bg-success">LocalStorage</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4">
+            <!-- Карточка 3 -->
+                            <div class="col-xl-3 col-md-6 col-sm-12">
                                 <div class="card h-100">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Проект 3</h5>
-                                        <p class="card-text small text-muted">Описание проекта 3</p>
+                                    <img src="images/project3.jpg" class="card-img-top" alt="Интернет-магазин" style="height: 150px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Интернет-магазин</h5>
+                                        <p class="card-text small text-muted">
+                                            Прототип интернет-магазина с корзиной товаров и фильтрацией
+                                        </p>
+                                        <div class="mb-2">
+                                            <span class="badge bg-info">React</span>
+                                            <span class="badge bg-info">API</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4">
+            
+                            <!-- Карточка 4 - НОВАЯ -->
+                            <div class="col-xl-3 col-md-6 col-sm-12">
                                 <div class="card h-100">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Проект 4</h5>
-                                        <p class="card-text small text-muted">Описание проекта 4</p>
+                                    <img src="images/project4.jpg" class="card-img-top" alt="Адаптивное портфолио" style="height: 150px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Адаптивное портфолио</h5>
+                                        <p class="card-text small text-muted">
+                                            Современное портфолио с мобильной адаптацией и доступностью
+                                        </p>
+                                        <div class="mb-2">
+                                            <span class="badge bg-warning">HTML5</span>
+                                            <span class="badge bg-warning">CSS3</span>
+                                            <span class="badge bg-warning">A11y</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
