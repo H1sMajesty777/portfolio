@@ -45,3 +45,37 @@ body {
     padding: 1rem !important;
   }
 }
+/* Базовые адаптивные стили */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  h1 { font-size: 1.8rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  h3 { font-size: 1.3rem !important; }
+  
+  .card {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 375px) {
+  body {
+    font-size: 14px;
+  }
+  .btn {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Улучшение касания на мобильных */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .nav-link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
