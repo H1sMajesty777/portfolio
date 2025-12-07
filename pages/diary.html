@@ -2,17 +2,40 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Дневник - Портфолио</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 10px;
+            z-index: 10000;
+            padding: 10px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .skip-link:focus {
+            top: 10px;
+        }
+        
+        :focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body class="bg-light">
+    <a href="#main" class="skip-link">Перейти к основному содержимому</a>
+    
     <div class="container-fluid p-0">
         <!-- Header -->
-        <header class="bg-primary text-white py-4">
+        <header class="bg-primary text-white py-4" role="banner">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
@@ -24,8 +47,11 @@
         </header>
 
         <!-- Nav -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Основная навигация">
             <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Переключить навигацию" aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -35,7 +61,7 @@
                             <a class="nav-link" href="projects.html">Проекты</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="diary.html">Дневник</a>
+                            <a class="nav-link active" href="diary.html" aria-current="page">Дневник</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contacts.html">Контакты</a>
@@ -46,78 +72,82 @@
         </nav>
 
         <!-- Main -->
-        <main class="container my-4">
-            <h2 class="mb-4">Мой учебный прогресс</h2>
+        <main class="container my-4" id="main" role="main">
+            <h1 class="mb-4">Мой учебный прогресс</h1>
             
             <!-- Progress Timeline -->
-            <div class="card mb-4">
-                <div class="card-header">
-                    <h5 class="card-title mb-0">История обучения</h5>
+            <section aria-labelledby="history-title">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 class="card-title h5 mb-0" id="history-title">История обучения</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                            <span>15 дек - Верстка макета сайта <span class="visually-hidden">выполнено</span>✓</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                            <span>10 дек - JavaScript основы <span class="visually-hidden">выполнено</span>✓</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-arrow-clockwise text-warning me-2" aria-hidden="true"></i>
+                            <span>05 дек - Работа с формами <span class="visually-hidden">в процессе</span>in progress</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-arrow-clockwise text-warning me-2" aria-hidden="true"></i>
+                            <span>01 дек - Адаптивный дизайн <span class="visually-hidden">в процессе</span>in progress</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                        <span>15 дек - Верстка макета сайта ✓</span>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                        <span>10 дек - JavaScript основы ✓</span>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="bi bi-arrow-clockwise text-warning me-2"></i>
-                        <span>05 дек - Работа с формами in progress</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <i class="bi bi-arrow-clockwise text-warning me-2"></i>
-                        <span>01 дек - Адаптивный дизайн in progress</span>
-                    </div>
-                </div>
-            </div>
+            </section>
 
             <!-- Current Courses -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title mb-0">Текущие курсы</h5>
+            <section aria-labelledby="courses-title">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title h5 mb-0" id="courses-title">Текущие курсы</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Веб-разработка</span>
+                                <span class="text-primary">90%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Прогресс по курсу Веб-разработка" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-primary" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>JavaScript</span>
+                                <span class="text-primary">70%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Прогресс по курсу JavaScript" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-success" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>React</span>
+                                <span class="text-primary">50%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Прогресс по курсу React" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-warning" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary mt-3" aria-label="Добавить новую запись в дневник">
+                            <i class="bi bi-plus-circle me-1" aria-hidden="true"></i>Добавить запись
+                        </button>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>Веб-разработка</span>
-                            <span class="text-primary">90%</span>
-                        </div>
-                        <div class="progress" style="height: 8px;">
-                            <div class="progress-bar bg-primary" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>JavaScript</span>
-                            <span class="text-primary">70%</span>
-                        </div>
-                        <div class="progress" style="height: 8px;">
-                            <div class="progress-bar bg-success" style="width: 70%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>React</span>
-                            <span class="text-primary">50%</span>
-                        </div>
-                        <div class="progress" style="height: 8px;">
-                            <div class="progress-bar bg-warning" style="width: 50%"></div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary mt-3">
-                        <i class="bi bi-plus-circle me-1"></i>Добавить запись
-                    </button>
-                </div>
-            </div>
+            </section>
         </main>
 
         <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-5">
+        <footer class="bg-dark text-white py-4 mt-5" role="contentinfo">
             <div class="container">
-                <p class="mb-0 text-center">&copy; 2025 Контакты</p>
+                <p class="mb-0 text-center">&copy; 2025 Портфолио студента</p>
             </div>
         </footer>
     </div>

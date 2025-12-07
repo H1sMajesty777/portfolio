@@ -2,17 +2,59 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Проекты - Портфолио</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 10px;
+            z-index: 10000;
+            padding: 10px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .skip-link:focus {
+            top: 10px;
+        }
+        
+        :focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Контейнерные запросы для проектов */
+        @supports (container-type: inline-size) {
+            .projects-container {
+                container-type: inline-size;
+                container-name: projects;
+            }
+            
+            @container projects (min-width: 768px) {
+                .projects-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            
+            @container projects (min-width: 992px) {
+                .projects-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+    </style>
 </head>
 <body class="bg-light">
+    <a href="#main" class="skip-link">Перейти к основному содержимому</a>
+    
     <div class="container-fluid p-0">
         <!-- Header -->
-        <header class="bg-primary text-white py-4">
+        <header class="bg-primary text-white py-4" role="banner">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
@@ -24,15 +66,18 @@
         </header>
 
         <!-- Nav -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Основная навигация">
             <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Переключить навигацию" aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="../index.html">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="projects.html">Проекты</a>
+                            <a class="nav-link active" href="projects.html" aria-current="page">Проекты</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="diary.html">Дневник</a>
@@ -46,61 +91,67 @@
         </nav>
 
         <!-- Main -->
-        <main class="container my-4">
+        <main class="container my-4" id="main" role="main">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
-                <h2>Мои проекты</h2>
-                <div>
-                    <button class="btn btn-outline-primary btn-sm">Все</button>
-                    <button class="btn btn-outline-primary btn-sm">HTML</button>
-                    <button class="btn btn-outline-primary btn-sm">JS</button>
-                    <button class="btn btn-outline-primary btn-sm">React</button>
+                <h1>Мои проекты</h1>
+                <div role="toolbar" aria-label="Фильтры проектов">
+                    <button class="btn btn-outline-primary btn-sm" aria-pressed="true" aria-label="Показать все проекты">Все</button>
+                    <button class="btn btn-outline-primary btn-sm" aria-pressed="false" aria-label="Фильтр: HTML проекты">HTML</button>
+                    <button class="btn btn-outline-primary btn-sm" aria-pressed="false" aria-label="Фильтр: JavaScript проекты">JS</button>
+                    <button class="btn btn-outline-primary btn-sm" aria-pressed="false" aria-label="Фильтр: React проекты">React</button>
                 </div>
             </div>
 
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Личный сайт</h5>
-                            <p class="card-text">HTML, CSS</p>
-                            <p class="card-text small text-muted">Сайт-портфолио с адаптивным дизайном</p>
-                        </div>
+            <div class="projects-container">
+                <div class="projects-grid row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <article class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title h5">Личный сайт</h2>
+                                <p class="card-text">HTML, CSS</p>
+                                <p class="card-text small text-muted" id="desc1">Сайт-портфолио с адаптивным дизайном</p>
+                                <a href="#" class="btn btn-outline-primary btn-sm" aria-label="Подробнее о проекте Личный сайт">Подробнее</a>
+                            </div>
+                        </article>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Todo-приложение</h5>
-                            <p class="card-text">JavaScript</p>
-                            <p class="card-text small text-muted">Приложение для управления задачами</p>
-                        </div>
+                    <div class="col">
+                        <article class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title h5">Todo-приложение</h2>
+                                <p class="card-text">JavaScript</p>
+                                <p class="card-text small text-muted" id="desc2">Приложение для управления задачами</p>
+                                <a href="#" class="btn btn-outline-primary btn-sm" aria-label="Подробнее о проекте Todo-приложение">Подробнее</a>
+                            </div>
+                        </article>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Интернет-магазин</h5>
-                            <p class="card-text">React</p>
-                            <p class="card-text small text-muted">Прототип интернет-магазина с корзиной</p>
-                        </div>
+                    <div class="col">
+                        <article class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title h5">Интернет-магазин</h2>
+                                <p class="card-text">React</p>
+                                <p class="card-text small text-muted" id="desc3">Прототип интернет-магазина с корзиной</p>
+                                <a href="#" class="btn btn-outline-primary btn-sm" aria-label="Подробнее о проекте Интернет-магазин">Подробнее</a>
+                            </div>
+                        </article>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Портфолио</h5>
-                            <p class="card-text">Bootstrap</p>
-                            <p class="card-text small text-muted">Адаптивное портфолио на Bootstrap</p>
-                        </div>
+                    <div class="col">
+                        <article class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title h5">Портфолио</h2>
+                                <p class="card-text">Bootstrap</p>
+                                <p class="card-text small text-muted" id="desc4">Адаптивное портфолио на Bootstrap</p>
+                                <a href="#" class="btn btn-outline-primary btn-sm" aria-label="Подробнее о проекте Портфолио">Подробнее</a>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-5">
+        <footer class="bg-dark text-white py-4 mt-5" role="contentinfo">
             <div class="container">
-                <p class="mb-0 text-center">&copy; 2025 Контакты</p>
+                <p class="mb-0 text-center">&copy; 2025 Портфолио студента</p>
             </div>
         </footer>
     </div>

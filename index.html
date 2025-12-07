@@ -2,17 +2,41 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Главная - Портфолио</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 10px;
+            z-index: 10000;
+            padding: 10px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .skip-link:focus {
+            top: 10px;
+        }
+        
+        /* Фокус для клавиатуры */
+        :focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body class="bg-light">
+    <a href="#main" class="skip-link">Перейти к основному содержимому</a>
+    
     <div class="container-fluid p-0">
         <!-- Header -->
-        <header class="bg-primary text-white py-4">
+        <header class="bg-primary text-white py-4" role="banner">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
@@ -27,31 +51,31 @@
         </header>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Основная навигация">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Переключить навигацию" aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">
-                                <i class="bi bi-house me-1"></i>Главная
+                            <a class="nav-link active" href="index.html" aria-current="page">
+                                <i class="bi bi-house me-1" aria-hidden="true"></i>Главная
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pages/projects.html">
-                                <i class="bi bi-folder me-1"></i>Проекты
+                                <i class="bi bi-folder me-1" aria-hidden="true"></i>Проекты
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pages/diary.html">
-                                <i class="bi bi-journal me-1"></i>Дневник
+                                <i class="bi bi-journal me-1" aria-hidden="true"></i>Дневник
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pages/contacts.html">
-                                <i class="bi bi-telephone me-1"></i>Контакты
+                                <i class="bi bi-telephone me-1" aria-hidden="true"></i>Контакты
                             </a>
                         </li>
                     </ul>
@@ -60,27 +84,32 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="container my-4">
+        <main class="container my-4" id="main" role="main">
             <!-- Profile Section -->
-            <section class="mb-5">
+            <section class="mb-5" aria-labelledby="profile-title">
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <div class="row align-items-center">
                             <div class="col-md-8">
-                                <h2 class="card-title h4 text-primary">Сергеев Алексей</h2>
+                                <h2 class="card-title h4 text-primary" id="profile-title">Сергеев Алексей</h2>
                                 <p class="card-text text-muted mb-2">
-                                    <i class="bi bi-bookmark-check-fill text-primary"></i>
+                                    <i class="bi bi-bookmark-check-fill text-primary" aria-hidden="true"></i>
                                     Студент группы ЭФБО-09-24
                                 </p>
                                 <p class="card-text">
                                     Привет! Я студент. Увлекаюсь веб-разработкой
                                 </p>
-                                <button class="btn btn-primary">
-                                    <i class="bi bi-download me-1"></i>Скачать резюме
+                                <button class="btn btn-primary" aria-label="Скачать резюме в формате PDF">
+                                    <i class="bi bi-download me-1" aria-hidden="true"></i>Скачать резюме
                                 </button>
                             </div>
                             <div class="col-md-4 text-center">
-                                <img src="images/photo.png" alt="Фото студента" class="img-fluid rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
+                                <img src="images/photo.png" 
+                                     srcset="images/photo@2x.png 2x"
+                                     alt="Фото студента Алексея Сергеева"
+                                     class="img-fluid rounded-circle"
+                                     width="200" height="200"
+                                     loading="eager">
                             </div>
                         </div>
                     </div>
@@ -88,11 +117,11 @@
             </section>
 
             <!-- Skills Section -->
-            <section class="mb-5">
+            <section class="mb-5" aria-labelledby="skills-title">
                 <div class="card shadow-sm">
                     <div class="card-header bg-light">
-                        <h3 class="card-title h5 mb-0">
-                            <i class="bi bi-tools text-primary"></i>
+                        <h3 class="card-title h5 mb-0" id="skills-title">
+                            <i class="bi bi-tools text-primary" aria-hidden="true"></i>
                             Мои навыки
                         </h3>
                     </div>
@@ -104,7 +133,7 @@
                                         <span>HTML/CSS</span>
                                         <span class="text-primary">90%</span>
                                     </div>
-                                    <div class="progress" style="height: 8px;">
+                                    <div class="progress" role="progressbar" aria-label="Прогресс по навыку HTML/CSS" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-primary" style="width: 90%"></div>
                                     </div>
                                 </div>
@@ -113,7 +142,7 @@
                                         <span>JavaScript</span>
                                         <span class="text-primary">80%</span>
                                     </div>
-                                    <div class="progress" style="height: 8px;">
+                                    <div class="progress" role="progressbar" aria-label="Прогресс по навыку JavaScript" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-success" style="width: 80%"></div>
                                     </div>
                                 </div>
@@ -124,7 +153,7 @@
                                         <span>Bootstrap</span>
                                         <span class="text-primary">85%</span>
                                     </div>
-                                    <div class="progress" style="height: 8px;">
+                                    <div class="progress" role="progressbar" aria-label="Прогресс по навыку Bootstrap" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info" style="width: 85%"></div>
                                     </div>
                                 </div>
@@ -133,7 +162,7 @@
                                         <span>React</span>
                                         <span class="text-primary">60%</span>
                                     </div>
-                                    <div class="progress" style="height: 8px;">
+                                    <div class="progress" role="progressbar" aria-label="Прогресс по навыку React" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: 60%"></div>
                                     </div>
                                 </div>
@@ -144,56 +173,70 @@
             </section>
 
             <!-- Projects Section -->
-            <section class="mb-5">
+            <section class="mb-5" aria-labelledby="projects-title">
                 <div class="card shadow-sm">
                     <div class="card-header bg-light">
-                        <h3 class="card-title h5 mb-0">
-                            <i class="bi bi-folder-fill text-primary"></i>
+                        <h3 class="card-title h5 mb-0" id="projects-title">
+                            <i class="bi bi-folder-fill text-primary" aria-hidden="true"></i>
                             Лучшие проекты
                         </h3>
                     </div>
                     <div class="card-body">
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3">
-                            <div class="card h-100">
-                                <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img src="images/project1.jpg" class="d-block w-100" alt="Проект 1 - вид 1" style="height: 150px; object-fit: cover;">
+                            <!-- Project 1 -->
+                            <div class="col">
+                                <article class="card h-100">
+                                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="images/project1.jpg" 
+                                                     srcset="images/project1@2x.jpg 2x"
+                                                     class="d-block w-100" 
+                                                     alt="Проект 1 - Личный сайт с галереей, вид 1"
+                                                     width="400" height="150"
+                                                     loading="lazy">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="images/project2.jpg"
+                                                     srcset="images/project2@2x.jpg 2x"
+                                                     class="d-block w-100" 
+                                                     alt="Проект 1 - Личный сайт с галереей, вид 2"
+                                                     width="400" height="150"
+                                                     loading="lazy">
+                                            </div>
                                         </div>
-                                        <div class="carousel-item">
-                                            <img src="images/project2.jpg" class="d-block w-100" alt="Проект 1 - вид 2" style="height: 150px; object-fit: cover;">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="images/project3.jpg" class="d-block w-100" alt="Проект 1 - вид 3" style="height: 150px; object-fit: cover;">
-                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev" aria-label="Предыдущий слайд">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next" aria-label="Следующий слайд">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        </button>
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                     </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                     </button>
-                                </div>ы
-                                <div class="card-body">
-                                    <h5 class="card-title">Личный сайт с галереей</h5>
-                                     <p class="card-text small text-muted">
-                                        Адаптивный сайт с интерактивной каруселью проектов
-                                     </p>
-                                     <div class="mb-2">
-                                        <span class="badge bg-primary">HTML</span>
-                                        <span class="badge bg-primary">CSS</span>
-                                        <span class="badge bg-primary">Bootstrap</span>
-                                    </div>
-                                </div>
-                            </div>
-            
-                            <div class="col-xl-3 col-md-6 col-sm-12">
-                                <div class="card h-100">
-                                    <img src="images/project2.jpg" class="card-img-top" alt="Todo приложение" style="height: 150px; object-fit: cover;">
                                     <div class="card-body">
-                                        <h5 class="card-title">Todo приложение</h5>
+                                        <h4 class="card-title h5">Личный сайт с галереей</h4>
+                                        <p class="card-text small text-muted">
+                                            Адаптивный сайт с интерактивной каруселью проектов
+                                        </p>
+                                        <div class="mb-2">
+                                            <span class="badge bg-primary">HTML</span>
+                                            <span class="badge bg-primary">CSS</span>
+                                            <span class="badge bg-primary">Bootstrap</span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- Project 2 -->
+                            <div class="col">
+                                <article class="card h-100">
+                                    <img src="images/project2.jpg"
+                                         srcset="images/project2@2x.jpg 2x"
+                                         class="card-img-top" 
+                                         alt="Todo приложение - интерфейс управления задачами"
+                                         width="400" height="150"
+                                         loading="lazy">
+                                    <div class="card-body">
+                                        <h4 class="card-title h5">Todo приложение</h4>
                                         <p class="card-text small text-muted">
                                             Приложение для управления задачами с использованием JavaScript
                                         </p>
@@ -202,13 +245,20 @@
                                             <span class="badge bg-success">LocalStorage</span>
                                         </div>
                                     </div>
-                                </div>
+                                </article>
                             </div>
-                            <div class="col-xl-3 col-md-6 col-sm-12">
-                                <div class="card h-100">
-                                    <img src="images/project3.jpg" class="card-img-top" alt="Интернет-магазин" style="height: 150px; object-fit: cover;">
+
+                            <!-- Project 3 -->
+                            <div class="col">
+                                <article class="card h-100">
+                                    <img src="images/project3.jpg"
+                                         srcset="images/project3@2x.jpg 2x"
+                                         class="card-img-top" 
+                                         alt="Интернет-магазин - главная страница с товарами"
+                                         width="400" height="150"
+                                         loading="lazy">
                                     <div class="card-body">
-                                        <h5 class="card-title">Интернет-магазин</h5>
+                                        <h4 class="card-title h5">Интернет-магазин</h4>
                                         <p class="card-text small text-muted">
                                             Прототип интернет-магазина с корзиной товаров и фильтрацией
                                         </p>
@@ -217,14 +267,20 @@
                                             <span class="badge bg-info">API</span>
                                         </div>
                                     </div>
-                                </div>
+                                </article>
                             </div>
-            
-                            <div class="col-xl-3 col-md-6 col-sm-12">
-                                <div class="card h-100">
-                                    <img src="images/project4.jpg" class="card-img-top" alt="Адаптивное портфолио" style="height: 150px; object-fit: cover;">
+
+                            <!-- Project 4 -->
+                            <div class="col">
+                                <article class="card h-100">
+                                    <img src="images/project4.jpg"
+                                         srcset="images/project4@2x.jpg 2x"
+                                         class="card-img-top" 
+                                         alt="Адаптивное портфолио - мобильный вид"
+                                         width="400" height="150"
+                                         loading="lazy">
                                     <div class="card-body">
-                                        <h5 class="card-title">Адаптивное портфолио</h5>
+                                        <h4 class="card-title h5">Адаптивное портфолио</h4>
                                         <p class="card-text small text-muted">
                                             Современное портфолио с мобильной адаптацией и доступностью
                                         </p>
@@ -234,7 +290,7 @@
                                             <span class="badge bg-warning">A11y</span>
                                         </div>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                         </div>
                     </div>
@@ -243,11 +299,11 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-5">
+        <footer class="bg-dark text-white py-4 mt-5" role="contentinfo">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <p class="mb-0">&copy; 2025 Контакты</p>
+                        <p class="mb-0">&copy; 2025 Портфолио студента</p>
                     </div>
                     <div class="col-md-6 text-md-end">
                         <a href="pages/contacts.html" class="text-white text-decoration-none">Контакты</a>
