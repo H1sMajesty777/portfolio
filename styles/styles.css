@@ -37,3 +37,11 @@ body {
     padding: 1rem !important;
   }
 }
+@media (max-width: 576px) {
+  .progress {
+    height: 6px !important;
+  }
+  .card-body {
+    padding: 1rem !important;
+  }
+}
