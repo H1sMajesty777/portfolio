@@ -39,7 +39,7 @@ body {
     line-height: 1.6;
     color: var(--color-text);
     background-color: var(--color-light);
-    color-scheme: light dark;
+    color-scheme: light;
     min-height: 100vh;
     min-height: 100svh;
     min-height: 100dvh;
@@ -272,7 +272,7 @@ p, li {
     }
 }
 
-/* Темная тема */
+/* Темная тема
 @media (prefers-color-scheme: dark) {
     :root {
         --color-main: #ecf0f1;
@@ -287,7 +287,7 @@ p, li {
         background: var(--color-dark);
         border-color: var(--color-main);
     }
-}
+} */
 
 /* Полноэкранные секции */
 .full-bleed {
